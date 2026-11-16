@@ -1,0 +1,95 @@
+# ==============================================================================
+# OmniLogin Messages Configuration (Adventure MiniMessage Format)
+# Supports gradients, hex colors (<#RRGGBB>), click/hover tags, and placeholders.
+# ==============================================================================
+
+prefix: "<gradient:#00c6ff:#0072ff><bold>OmniLogin</bold></gradient> <dark_gray>»</dark_gray> "
+
+general:
+  player-only: "<prefix><red>Only in-game players may execute this command.</red>"
+  no-permission: "<prefix><red>You do not have permission to perform this action.</red>"
+  reload-success: "<prefix><green>Configuration, messages, and GUI layouts reloaded.</green>"
+  internal-error: "<prefix><red>An internal authentication error occurred. Please contact an administrator.</red>"
+
+limbo:
+  register-prompt: "<prefix><yellow>Welcome! Please register with <gold>/register <password> <confirm></gold> within <white><seconds>s</white>.</yellow>"
+  login-prompt: "<prefix><yellow>Please authenticate with <gold>/login <password></gold> within <white><seconds>s</white>.</yellow>"
+  command-blocked: "<prefix><red>You must authenticate before running other commands.</red>"
+  chat-blocked: "<prefix><red>You must authenticate before sending chat messages.</red>"
+  timeout-kick: "<red><bold>Authentication Timeout</bold></red>\n<gray>You did not authenticate within the allowed time (<white><seconds>s</white>).</gray>"
+  bossbar-title: "<aqua>Authenticate to play</aqua> <dark_gray>|</dark_gray> <white>Time remaining: <yellow><seconds>s</yellow></white>"
+  actionbar-register: "<yellow>Register with <gold>/register <password> <confirm></gold> <dark_gray>•</dark_gray> <red><seconds>s left</red></yellow>"
+  actionbar-login: "<yellow>Login with <gold>/login <password></gold> <dark_gray>•</dark_gray> <red><seconds>s left</red></yellow>"
+  title-main: "<gradient:#ff512f:#f09819><bold>AUTHENTICATION REQUIRED</bold></gradient>"
+  title-subtitle-register: "<gray>Use <gold>/register <pass> <pass></gold> <dark_gray>|</dark_gray> <yellow><seconds>s</yellow></gray>"
+  title-subtitle-login: "<gray>Use <gold>/login <password></gold> <dark_gray>|</dark_gray> <yellow><seconds>s</yellow></gray>"
+
+auth:
+  already-authenticated: "<prefix><green>You are already authenticated.</green>"
+  not-authenticated: "<prefix><red>You must log in first before using this command.</red>"
+  register-usage: "<prefix><yellow>Usage: <gold>/register <password> <confirmPassword></gold></yellow>"
+  login-usage: "<prefix><yellow>Usage: <gold>/login <password></gold></yellow>"
+  changepass-usage: "<prefix><yellow>Usage: <gold>/changepassword <oldPassword> <newPassword> [confirmPassword]</gold></yellow>"
+  already-registered: "<prefix><red>This account is already registered. Use <gold>/login <password></gold>.</red>"
+  not-registered: "<prefix><red>No account found. Register first using <gold>/register <password> <confirmPassword></gold>.</red>"
+  passwords-do-not-match: "<prefix><red>The passwords you entered do not match.</red>"
+  same-password-error: "<prefix><red>Your new password must differ from your current password.</red>"
+  register-success: "<prefix><green>Account registered and authenticated! Welcome to the server.</green>"
+  login-success: "<prefix><green>Successfully authenticated! Welcome back.</green>"
+  session-resumed: "<prefix><green>Session resumed automatically from your verified IP address.</green>"
+  changepass-success: "<prefix><green>Your password has been updated securely.</green>"
+  premium-cannot-changepass: "<prefix><red>Mojang premium auto-login accounts do not use a local server password.</red>"
+  wrong-password: "<prefix><red>Incorrect password! <gray>(<white><attempts></white> attempts remaining)</gray></red>"
+  wrong-old-password: "<prefix><red>Your current password is incorrect.</red>"
+  too-many-attempts-kick: "<red><bold>Too Many Failed Attempts</bold></red>\n<gray>Your account is temporarily locked for <white><seconds>s</white>.</gray>"
+  ip-locked-out: "<red><bold>Login Locked</bold></red>\n<gray>Too many failed attempts. Please retry in <white><seconds>s</white>.</gray>"
+  max-accounts-per-ip: "<prefix><red>Registration limit reached for your IP address (<white><max></white>).</red>"
+  gui-commands-disabled: "<prefix><yellow>Chat auth commands are disabled. Please use the PIN-pad GUI.</yellow>"
+
+password-validation:
+  header: "<prefix><red>Your password does not meet the security requirements:</red>"
+  item-format: " <dark_gray>•</dark_gray> <gray><reason></gray>"
+  too-short: "<red>Must be at least <white><min></white> characters long.</red>"
+  too-long: "<red>Must be at most <white><max></white> characters long.</red>"
+  contains-username: "<red>Must not contain your username.</red>"
+  blacklisted: "<red>This password is too common and is on the blocked password list.</red>"
+  missing-number: "<red>Must contain at least one numeric digit (0-9).</red>"
+  missing-uppercase: "<red>Must contain at least one uppercase letter (A-Z).</red>"
+  missing-special: "<red>Must contain at least one special character (e.g. !@#$%).</red>"
+  repetitive-pattern: "<red>Must not contain repetitive characters (e.g. 'aaaaaa' or '111111').</red>"
+  sequential-pattern: "<red>Must not contain trivial sequences (e.g. '123456' or 'abcdef').</red>"
+
+premium:
+  auto-login-success: "<prefix><aqua>Verified via official Mojang authentication. Auto-logged in!</aqua>"
+  spoof-kick: "<red><bold>Premium Account Protected</bold></red>\n<gray>This username belongs to a premium Mojang account. Please sign in via the official launcher or select an offline name.</gray>"
+  api-error-kick: "<red><bold>Verification Unavailable</bold></red>\n<gray>Unable to reach Mojang authentication servers right now. Please try again shortly.</gray>"
+
+gui:
+  pin-too-short: "<prefix><red>PIN must be at least <white><min></white> digits.</red>"
+  pin-too-long: "<prefix><red>Maximum PIN length is <white><max></white> digits.</red>"
+  pin-confirm-step: "<prefix><yellow>Re-enter your PIN in the GUI to confirm registration.</yellow>"
+  pin-mismatch: "<prefix><red>PIN confirmation did not match. Please enter your new PIN again.</red>"
+
+admin:
+  help: |
+    <gradient:#00c6ff:#0072ff><bold>OmniLogin Admin Commands</bold></gradient>
+    <dark_gray>•</dark_gray> <gold>/omnicord inspect <player></gold> <gray>- Inspect account & session details</gray>
+    <dark_gray>•</dark_gray> <gold>/omnicord reload</gold> <gray>- Reload config, messages, and GUIs</gray>
+    <dark_gray>•</dark_gray> <gold>/omnicord forcelogin <player></gold> <gray>- Force authenticate an online player</gray>
+    <dark_gray>•</dark_gray> <gold>/omnicord unregister <player></gold> <gray>- Remove stored account credentials</gray>
+  player-not-found: "<prefix><red>No account record found for <white><target></white>.</red>"
+  player-not-online: "<prefix><red>Player <white><target></white> is not currently online.</red>"
+  forcelogin-success: "<prefix><green>Force-authenticated <white><target></white>.</green>"
+  forcelogin-already: "<prefix><yellow><white><target></white> is already authenticated.</yellow>"
+  unregister-success: "<prefix><green>Removed authentication credentials for <white><target></white>.</green>"
+  inspect-card: |
+    <dark_gray><strikethrough>                                                  </strikethrough></dark_gray>
+    <gradient:#00c6ff:#0072ff><bold>OmniCord Account Inspection</bold></gradient> <dark_gray>|</dark_gray> <white><username></white>
+    <gray>UUID:</gray> <aqua><uuid></aqua>
+    <gray>Auth State:</gray> <auth_state>
+    <gray>Premium Status:</gray> <premium_status>
+    <gray>Registered At:</gray> <white><registered_at></white>
+    <gray>Last Login At:</gray> <white><last_login_at></white>
+    <gray>Last Login IP:</gray> <white><last_ip></white>
+    <gray>Session Timeout:</gray> <yellow><session_timeout></yellow>
+    <dark_gray><strikethrough>                                                  </strikethrough></dark_gray>

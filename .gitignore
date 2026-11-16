@@ -1,0 +1,22 @@
+# Gradle build artifacts and caches
+.gradle/
+build/
+out/
+
+# IDE and Editor files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Log and temporary files
+*.log
+/tmp/

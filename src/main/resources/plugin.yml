@@ -1,0 +1,62 @@
+name: OmniLogin
+version: '${version}'
+main: com.omnilogin.auth.OmniLogin
+api-version: '1.20'
+description: '${description}'
+author: PantherYTac
+website: https://github.com/PantherYTac/OmniLogin
+softdepend:
+  - ProtocolLib
+
+commands:
+  login:
+    description: Authenticate your account with your password.
+    aliases: [l]
+    permission: omnilogin.command.login
+    usage: "/login <password>"
+  register:
+    description: Register a new account with a strong password.
+    aliases: [reg]
+    permission: omnilogin.command.register
+    usage: "/register <password> <confirmPassword>"
+  changepassword:
+    description: Change your account password.
+    aliases: [changepass, cp, passwd]
+    permission: omnilogin.command.changepassword
+    usage: "/changepassword <oldPassword> <newPassword> [confirmPassword]"
+  omnicord:
+    description: Administrative commands for OmniLogin authentication inspection and management.
+    aliases: [omnilogin]
+    permission: omnicord.admin
+    usage: "/omnicord <inspect|reload|forcelogin|unregister> [args]"
+
+permissions:
+  omnilogin.command.login:
+    description: Allows authenticating with /login.
+    default: true
+  omnilogin.command.register:
+    description: Allows registering with /register.
+    default: true
+  omnilogin.command.changepassword:
+    description: Allows changing password with /changepassword.
+    default: true
+  omnicord.admin:
+    description: Grants access to all OmniLogin administrative commands.
+    default: op
+    children:
+      omnicord.admin.inspect: true
+      omnicord.admin.reload: true
+      omnicord.admin.forcelogin: true
+      omnicord.admin.unregister: true
+  omnicord.admin.inspect:
+    description: Allows inspecting player authentication metadata via /omnicord inspect.
+    default: op
+  omnicord.admin.reload:
+    description: Allows reloading OmniLogin configuration files.
+    default: op
+  omnicord.admin.forcelogin:
+    description: Allows force-authenticating an unauthenticated player.
+    default: op
+  omnicord.admin.unregister:
+    description: Allows deleting a player's stored authentication record.
+    default: op

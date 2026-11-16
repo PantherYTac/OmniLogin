@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: "SF Mono", Menlo, Monaco, Consolas, monospace; }
+    </style>
+
+    <!-- Background gradients -->
+    <linearGradient id="canvasBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070B13"/>
+      <stop offset="55%" stop-color="#0A101D"/>
+      <stop offset="100%" stop-color="#060911"/>
+    </linearGradient>
+
+    <radialGradient id="glowRight" cx="0.74" cy="0.34" r="0.48">
+      <stop offset="0%" stop-color="#0072FF" stop-opacity="0.16"/>
+      <stop offset="55%" stop-color="#00C6FF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#070B13" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowLeft" cx="0.20" cy="0.82" r="0.42">
+      <stop offset="0%" stop-color="#00C6FF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#070B13" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Architectural grid pattern -->
+    <pattern id="grid48" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#94A3B8" stroke-width="1" stroke-opacity="0.06"/>
+    </pattern>
+
+    <radialGradient id="gridFade" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridMask">
+      <rect width="1920" height="1080" fill="url(#gridFade)"/>
+    </mask>
+
+    <!-- Brand gradients -->
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="55%" stop-color="#0095FF"/>
+      <stop offset="100%" stop-color="#0066FF"/>
+    </linearGradient>
+
+    <linearGradient id="brandHoriz" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+
+    <linearGradient id="dividerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="65%" stop-color="#1E293B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#090E1B"/>
+    </linearGradient>
+
+    <filter id="panelShadow" x="-10%" y="-10%" width="125%" height="130%">
+      <feDropShadow dx="0" dy="28" stdDeviation="34" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas & Grid -->
+  <rect width="1920" height="1080" fill="url(#canvasBg)"/>
+  <rect width="1920" height="1080" fill="url(#grid48)" mask="url(#gridMask)"/>
+  <rect width="1920" height="1080" fill="url(#glowRight)"/>
+  <rect width="1920" height="1080" fill="url(#glowLeft)"/>
+
+  <!-- Subtle outer frame lines -->
+  <rect x="40" y="40" width="1840" height="1000" rx="28" fill="none" stroke="#FFFFFF" stroke-opacity="0.045" stroke-width="1.5"/>
+
+  <!-- ================= LEFT COLUMN: EDITORIAL LOCKUP ================= -->
+
+  <!-- Platform Compatibility Pill -->
+  <rect x="128" y="164" width="510" height="42" rx="21" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <circle cx="154" cy="185" r="5" fill="#10B981"/>
+  <text x="172" y="191" class="mono" font-size="15.5" font-weight="600" letter-spacing="1.1" fill="#CBD5E1">PAPER  •  SPIGOT  •  PURPUR   |   1.20 – 1.21+</text>
+
+  <!-- Compact Logo Mark (104x104 at 128, 254) -->
+  <g transform="translate(128, 254) scale(0.1015625)">
+    <rect x="24" y="24" width="976" height="976" rx="224" fill="#0D1424" stroke="#1E293B" stroke-width="20"/>
+    <path d="M 512 192 L 776 286 C 788 290, 796 301, 796 314 L 796 512 C 796 668, 672 778, 526 832 C 517 835, 507 835, 498 832 C 352 778, 228 668, 228 512 L 228 314 C 228 301, 236 290, 248 286 Z"
+          fill="#0B1120" stroke="url(#brandGrad)" stroke-width="36" stroke-linejoin="round"/>
+    <circle cx="512" cy="500" r="142" fill="none" stroke="#F8FAFC" stroke-width="46"/>
+    <path d="M 512 430 C 487.7 430, 468 449.7, 468 474 C 468 490.5, 477.1 504.9, 490.6 512.4 L 479 564 C 477.8 569.3, 481.8 574, 487.2 574 L 536.8 574 C 542.2 574, 546.2 569.3, 545 564 L 533.4 512.4 C 546.9 504.9, 556 490.5, 556 474 C 556 449.7, 536.3 430, 512 430 Z"
+          fill="url(#brandGrad)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="256" y="335" class="sans" font-size="88" font-weight="800" letter-spacing="-2.5">
+    <tspan fill="#F8FAFC">Omni</tspan><tspan fill="url(#brandGrad)">Login</tspan>
+  </text>
+
+  <!-- Version Pill -->
+  <rect x="708" y="288" width="144" height="36" rx="18" fill="#0B192E" stroke="#1D4ED8" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="780" y="312" text-anchor="middle" class="mono" font-size="15" font-weight="600" fill="#38BDF8">v0.0.1-alpha</text>
+
+  <!-- Subtitle -->
+  <text x="128" y="426" class="sans" font-size="29" font-weight="400" fill="#94A3B8">Zero-trust player authentication, limbo isolation,</text>
+  <text x="128" y="468" class="sans" font-size="29" font-weight="400" fill="#94A3B8">and cryptographic Mojang session verification.</text>
+
+  <!-- Accent Divider -->
+  <rect x="128" y="518" width="740" height="1.5" fill="url(#dividerGrad)"/>
+
+  <!-- 2x2 Feature Cards -->
+  <!-- Card 1 -->
+  <g transform="translate(128, 560)">
+    <rect width="360" height="84" rx="14" fill="#0D1424" stroke="#1E293B" stroke-width="1.5"/>
+    <rect x="18" y="20" width="44" height="44" rx="10" fill="#0F1F38" stroke="#1D4ED8" stroke-opacity="0.35"/>
+    <path d="M 40 31 C 35 31, 32 34, 32 38 L 32 41 L 30 41 L 30 53 L 50 53 L 50 41 L 48 41 L 48 38 C 48 34, 45 31, 40 31 Z M 35 38 C 35 35.5, 37 34, 40 34 C 43 34, 45 35.5, 45 38 L 45 41 L 35 41 Z" fill="#38BDF8"/>
+    <text x="78" y="39" class="sans" font-size="19" font-weight="700" fill="#F1F5F9">Argon2id &amp; BCrypt</text>
+    <text x="78" y="63" class="sans" font-size="15" fill="#64748B">Salted PHC hashing &amp; rules</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(508, 560)">
+    <rect width="360" height="84" rx="14" fill="#0D1424" stroke="#1E293B" stroke-width="1.5"/>
+    <rect x="18" y="20" width="44" height="44" rx="10" fill="#0F1F38" stroke="#1D4ED8" stroke-opacity="0.35"/>
+    <path d="M 40 30 L 50 34 L 50 43 C 50 49, 45.5 53.5, 40 55.5 C 34.5 53.5, 30 49, 30 43 L 30 34 Z" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="40" cy="42" r="3" fill="#38BDF8"/>
+    <text x="78" y="39" class="sans" font-size="19" font-weight="700" fill="#F1F5F9">Limbo Isolation</text>
+    <text x="78" y="63" class="sans" font-size="15" fill="#64748B">Player hiding &amp; 30s countdown</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(128, 664)">
+    <rect width="360" height="84" rx="14" fill="#0D1424" stroke="#1E293B" stroke-width="1.5"/>
+    <rect x="18" y="20" width="44" height="44" rx="10" fill="#0F1F38" stroke="#1D4ED8" stroke-opacity="0.35"/>
+    <circle cx="35" cy="42" r="6" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <path d="M 41 42 L 51 42 L 51 47 M 47 42 L 47 46" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="78" y="39" class="sans" font-size="19" font-weight="700" fill="#F1F5F9">Hybrid Mojang Auth</text>
+    <text x="78" y="63" class="sans" font-size="15" fill="#64748B">Netty RSA + AES/CFB8 guard</text>
+  </g>
+
+  <!-- Card 4 -->
+  <g transform="translate(508, 664)">
+    <rect width="360" height="84" rx="14" fill="#0D1424" stroke="#1E293B" stroke-width="1.5"/>
+    <rect x="18" y="20" width="44" height="44" rx="10" fill="#0F1F38" stroke="#1D4ED8" stroke-opacity="0.35"/>
+    <rect x="30" y="32" width="8" height="8" rx="2" fill="#38BDF8"/>
+    <rect x="42" y="32" width="8" height="8" rx="2" fill="#38BDF8"/>
+    <rect x="30" y="44" width="8" height="8" rx="2" fill="#38BDF8"/>
+    <rect x="42" y="44" width="8" height="8" rx="2" fill="#0072FF"/>
+    <text x="78" y="39" class="sans" font-size="19" font-weight="700" fill="#F1F5F9">PIN-Pad &amp; Storage</text>
+    <text x="78" y="63" class="sans" font-size="15" fill="#64748B">Chest GUI, SQLite &amp; MySQL</text>
+  </g>
+
+  <!-- Footer Tech Spec Bar -->
+  <text x="128" y="914" class="mono" font-size="16" font-weight="600" letter-spacing="1.4" fill="#64748B">JAVA 21+   •   ADVENTURE MINIMESSAGE   •   HIKARICP   •   ASYNC ENGINE</text>
+
+  <!-- ================= RIGHT COLUMN: SECURITY UI MOCKUP ================= -->
+  <g filter="url(#panelShadow)">
+    <rect x="1008" y="156" width="784" height="768" rx="24" fill="url(#panelFill)" stroke="#1E293B" stroke-width="2"/>
+  </g>
+
+  <!-- Window Header -->
+  <line x1="1008" y1="220" x2="1792" y2="220" stroke="#1E293B" stroke-width="1.5"/>
+  <circle cx="1044" cy="188" r="6" fill="#334155"/>
+  <circle cx="1066" cy="188" r="6" fill="#334155"/>
+  <circle cx="1088" cy="188" r="6" fill="#334155"/>
+  <text x="1122" y="194" class="mono" font-size="15.5" font-weight="600" fill="#94A3B8">omnilogin / security-pipeline</text>
+
+  <rect x="1652" y="172" width="112" height="32" rx="16" fill="#052E16" stroke="#10B981" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="1672" cy="188" r="4" fill="#10B981"/>
+  <text x="1686" y="193" class="mono" font-size="13.5" font-weight="700" fill="#34D399">ACTIVE</text>
+
+  <!-- Inner Left Card: Virtual PIN-Pad GUI -->
+  <rect x="1044" y="252" width="340" height="422" rx="18" fill="#070C17" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="1072" y="286" class="mono" font-size="13.5" font-weight="700" letter-spacing="1.4" fill="#64748B">VIRTUAL PIN-PAD GUI</text>
+
+  <!-- Masked PIN input box -->
+  <rect x="1072" y="306" width="284" height="52" rx="12" fill="#0E172A" stroke="#25334D" stroke-width="1.5"/>
+  <circle cx="1156" cy="332" r="6.5" fill="#38BDF8"/>
+  <circle cx="1179" cy="332" r="6.5" fill="#38BDF8"/>
+  <circle cx="1202" cy="332" r="6.5" fill="#38BDF8"/>
+  <circle cx="1225" cy="332" r="6.5" fill="#38BDF8"/>
+  <circle cx="1248" cy="332" r="6.5" fill="#38BDF8"/>
+  <circle cx="1271" cy="332" r="6.5" fill="#334155"/>
+
+  <!-- Keypad Grid: 3 cols x 4 rows (84x58 buttons, gap 16) -->
+  <!-- Row 1: 1 2 3 -->
+  <g class="sans" font-size="22" font-weight="700" text-anchor="middle" fill="#E2E8F0">
+    <rect x="1072" y="378" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1114" y="415">1</text>
+    <rect x="1172" y="378" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1214" y="415">2</text>
+    <rect x="1272" y="378" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1314" y="415">3</text>
+
+    <!-- Row 2: 4 5 6 -->
+    <rect x="1072" y="450" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1114" y="487">4</text>
+    <rect x="1172" y="450" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1214" y="487">5</text>
+    <rect x="1272" y="450" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1314" y="487">6</text>
+
+    <!-- Row 3: 7 8 9 -->
+    <rect x="1072" y="522" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1114" y="559">7</text>
+    <rect x="1172" y="522" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1214" y="559">8</text>
+    <rect x="1272" y="522" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1314" y="559">9</text>
+
+    <!-- Row 4: Clear, 0, Submit -->
+    <rect x="1072" y="594" width="84" height="58" rx="12" fill="#1F1219" stroke="#7F1D1D" stroke-opacity="0.7" stroke-width="1.2"/>
+    <text x="1114" y="630" fill="#FCA5A5" font-size="18">CLR</text>
+    <rect x="1172" y="594" width="84" height="58" rx="12" fill="#111B30" stroke="#25334D" stroke-width="1.2"/>
+    <text x="1214" y="631">0</text>
+    <rect x="1272" y="594" width="84" height="58" rx="12" fill="url(#brandHoriz)"/>
+    <path d="M 1302 624 L 1310 632 L 1327 615" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Inner Right Top Card: Handshake Pipeline -->
+  <rect x="1408" y="252" width="348" height="200" rx="18" fill="#070C17" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="1434" y="286" class="mono" font-size="13.5" font-weight="700" letter-spacing="1.4" fill="#64748B">HYBRID VERIFICATION</text>
+
+  <g class="sans" font-size="16" font-weight="600">
+    <circle cx="1444" cy="322" r="9" fill="#052E16" stroke="#10B981" stroke-width="1.5"/>
+    <path d="M 1440 322 L 1443 325 L 1449 319" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+    <text x="1464" y="328" fill="#E2E8F0">Netty Login Start</text>
+    <text x="1728" y="328" text-anchor="end" class="mono" font-size="14" fill="#38BDF8">0x00</text>
+
+    <circle cx="1444" cy="368" r="9" fill="#052E16" stroke="#10B981" stroke-width="1.5"/>
+    <path d="M 1440 368 L 1443 371 L 1449 365" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+    <text x="1464" y="374" fill="#E2E8F0">RSA + AES/CFB8</text>
+    <text x="1728" y="374" text-anchor="end" class="mono" font-size="14" fill="#34D399">ENCRYPTED</text>
+
+    <circle cx="1444" cy="414" r="9" fill="#052E16" stroke="#10B981" stroke-width="1.5"/>
+    <path d="M 1440 414 L 1443 417 L 1449 411" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+    <text x="1464" y="420" fill="#E2E8F0">Mojang hasJoined</text>
+    <text x="1728" y="420" text-anchor="end" class="mono" font-size="14" fill="#34D399">VERIFIED</text>
+  </g>
+
+  <!-- Inner Right Bottom Card: Password Security -->
+  <rect x="1408" y="474" width="348" height="200" rx="18" fill="#070C17" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="1434" y="508" class="mono" font-size="13.5" font-weight="700" letter-spacing="1.4" fill="#64748B">CREDENTIAL GUARD</text>
+
+  <g class="sans" font-size="16" font-weight="600">
+    <rect x="1434" y="530" width="8" height="8" rx="2" fill="#38BDF8"/>
+    <text x="1454" y="540" fill="#E2E8F0">Length &amp; Complexity Rules</text>
+    <rect x="1434" y="576" width="8" height="8" rx="2" fill="#38BDF8"/>
+    <text x="1454" y="586" fill="#E2E8F0">Blacklist &amp; Pattern Checks</text>
+    <rect x="1434" y="622" width="8" height="8" rx="2" fill="#0072FF"/>
+    <text x="1454" y="632" fill="#E2E8F0">Argon2id (No Plaintext Logs)</text>
+  </g>
+
+  <!-- Bottom Card: Account Inspection Preview -->
+  <rect x="1044" y="698" width="712" height="190" rx="18" fill="#070C17" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="1072" y="734" class="mono" font-size="14.5" font-weight="600" fill="#38BDF8">$ /omnicord inspect Notch</text>
+
+  <g class="mono" font-size="15">
+    <text x="1072" y="772" fill="#64748B">AUTH STATE:</text>
+    <text x="1192" y="772" fill="#34D399">Authenticated (Verified)</text>
+    <text x="1508" y="772" fill="#64748B">BACKEND:</text>
+    <text x="1600" y="772" fill="#E2E8F0">SQLite WAL</text>
+
+    <text x="1072" y="806" fill="#64748B">HASH ENGINE:</text>
+    <text x="1192" y="806" fill="#E2E8F0">Argon2id v19</text>
+    <text x="1508" y="806" fill="#64748B">LIMBO:</text>
+    <text x="1600" y="806" fill="#FBBF24">30s Timeout</text>
+  </g>
+
+  <!-- Subtle progress/security meter bar -->
+  <rect x="1072" y="838" width="656" height="12" rx="6" fill="#111B30"/>
+  <rect x="1072" y="838" width="520" height="12" rx="6" fill="url(#brandHoriz)"/>
+</svg>

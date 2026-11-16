@@ -1,0 +1,217 @@
+# ==============================================================================
+# OmniLogin Configuration
+# Target Platforms: Paper, Spigot, Purpur (1.20 - 1.21+)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Limbo & Pre-Authentication Restrictions
+# ------------------------------------------------------------------------------
+limbo:
+  # Seconds before an unauthenticated player is automatically kicked.
+  timeout-seconds: 30
+
+  # Allow unauthenticated players to rotate their camera (yaw/pitch) while XYZ stays frozen.
+  # Set to false to cancel all PlayerMoveEvent movement strictly.
+  allow-head-rotation: false
+
+  # Hide unauthenticated players from authenticated players using Player#hidePlayer.
+  hide-unauthenticated-players: true
+
+  # Also hide all other online players from players currently inside limbo.
+  hide-others-from-limbo: true
+
+  # Apply Blindness and Slowness potion effects during limbo.
+  apply-blindness: true
+  apply-slowness: true
+  slowness-amplifier: 4
+
+  # Interval (in seconds) between chat authentication prompt reminders while in limbo.
+  # Set to 0 to disable periodic chat reminders.
+  reminder-interval-seconds: 5
+
+  # Commands allowed while unauthenticated (case-insensitive, without leading slash).
+  allowed-commands:
+    - "login"
+    - "l"
+    - "register"
+    - "reg"
+
+  # Visual countdown displays rendered while in limbo.
+  display:
+    bossbar:
+      enabled: true
+      # Valid colors: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+      color: "BLUE"
+      # Valid overlays: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+      overlay: "PROGRESS"
+    actionbar:
+      enabled: true
+    title:
+      enabled: true
+
+# ------------------------------------------------------------------------------
+# Password Strength Validator
+# ------------------------------------------------------------------------------
+password-security:
+  # Master switch for enforcing password strength validation on /register & /changepassword.
+  reject-weak-passwords: true
+
+  checks:
+    # Enforce minimum and maximum password length.
+    length:
+      enabled: true
+      min: 6
+      max: 32
+
+    # Reject passwords containing the player's username (case-insensitive).
+    disallow-username:
+      enabled: true
+
+    # Reject passwords found in the embedded common-passwords blacklist + extra list below.
+    common-blacklist:
+      enabled: true
+      extra-passwords:
+        - "myserver"
+        - "changeme"
+
+    # Require at least one numeric digit (0-9).
+    require-number:
+      enabled: true
+
+    # Require at least one uppercase letter (A-Z).
+    require-uppercase:
+      enabled: true
+
+    # Require at least one special character.
+    require-special-char:
+      enabled: true
+      special-chars: "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|`~"
+
+    # Reject repetitive characters (e.g. "aaaaaa", "111111") and trivial sequences (e.g. "123456").
+    pattern-detection:
+      enabled: true
+      # Reject runs of consecutive identical characters greater than this threshold (e.g. 3 rejects "aaaa").
+      max-repeated-chars: 3
+      # Reject ascending/descending numeric or alphabetic sequences of this length or longer (e.g. "1234", "abcd").
+      min-sequence-length: 4
+
+# ------------------------------------------------------------------------------
+# Hybrid Premium / Cracked Authentication
+# ------------------------------------------------------------------------------
+premium-auto-login:
+  # Disabled by default. Requires server.properties online-mode=false for hybrid cracked/premium support.
+  enabled: false
+
+  # Perform cryptographic RSA + AES/CFB8 + Mojang Session Server verification directly in Netty.
+  # Distinguishes genuine official Minecraft launchers from cracked clients using premium usernames.
+  netty-encryption-handshake: true
+
+  # If true, rejects unverified/cracked clients attempting to connect using a registered Mojang username.
+  strict-reject-unverified-premium: true
+
+  # On Paper/Purpur, synchronize the verified Mojang UUID and signed skin textures onto the player profile.
+  apply-mojang-uuid: true
+  apply-mojang-skin: true
+
+  # Local Mojang username lookup cache settings.
+  cache-ttl-minutes: 30
+  negative-cache-ttl-minutes: 10
+  cache-max-entries: 10000
+
+  # HTTP timeout (milliseconds) when querying Mojang APIs.
+  api-timeout-ms: 4000
+
+  # Behavior if Mojang API is unreachable or rate-limited (HTTP 429 / timeout):
+  # FALLBACK_OFFLINE = route through standard /register or /login
+  # DENY             = refuse connection temporarily
+  on-api-error: "FALLBACK_OFFLINE"
+
+# ------------------------------------------------------------------------------
+# GUI PIN-Pad Login
+# ------------------------------------------------------------------------------
+gui-auth:
+  # Disabled by default. When enabled, opens an interactive chest PIN-pad on join.
+  enabled: false
+
+  # Delay (in server ticks) after join before opening the PIN-pad GUI.
+  open-delay-ticks: 2
+
+  # If true, closing the PIN-pad while unauthenticated automatically reopens it.
+  # If false, closing the GUI lets the player fall back to /login or /register in chat.
+  reopen-on-close: false
+
+  # Require entering the PIN twice during registration to prevent typos.
+  confirm-pin-on-register: true
+
+  # Since the PIN-pad only contains digits 0-9, skip uppercase & special-char requirements
+  # when registering via the GUI (length, username, blacklist, and sequence/repeat checks still apply).
+  allow-numeric-only-pin: true
+
+  # Allowed PIN lengths inside the GUI.
+  min-pin-length: 4
+  max-pin-length: 12
+
+  # Shuffle digit button positions (0-9) every time the GUI is opened.
+  randomize-digits: false
+
+  # If true, disables /login and /register commands while GUI authentication is active.
+  block-chat-commands-when-enabled: false
+
+# ------------------------------------------------------------------------------
+# Cryptography, Sessions & Security Hardening
+# ------------------------------------------------------------------------------
+security:
+  hashing:
+    # Supported algorithms: ARGON2ID (recommended), BCRYPT
+    algorithm: "ARGON2ID"
+    argon2:
+      memory-kb: 65536
+      iterations: 3
+      parallelism: 1
+      hash-length: 32
+      salt-length: 16
+    bcrypt:
+      cost: 12
+
+  # Maximum consecutive failed login attempts before temporarily locking/kicking the player.
+  max-login-attempts: 5
+  lockout-seconds: 300
+
+  # Maximum accounts allowed to register from a single IP address (0 = unlimited).
+  max-accounts-per-ip: 0
+
+  # Authenticated session lifetime (in minutes), displayed by /omnicord inspect <player>.
+  session-timeout-minutes: 60
+
+  # If true, players reconnecting from the exact same IP within session-timeout-minutes
+  # resume their authenticated session automatically without re-entering their password.
+  session-resume-same-ip: false
+
+  # Mask passwords passed to /login, /register, and /changepassword in server console logs.
+  mask-console-passwords: true
+
+# ------------------------------------------------------------------------------
+# Asynchronous Storage Engine (SQLite / MySQL / YAML)
+# ------------------------------------------------------------------------------
+storage:
+  # Supported backends: SQLITE, MYSQL, YAML
+  type: "SQLITE"
+
+  sqlite:
+    file: "omnilogin.db"
+
+  mysql:
+    host: "127.0.0.1"
+    port: 3306
+    database: "omnilogin"
+    username: "root"
+    password: ""
+    use-ssl: false
+    pool-size: 10
+    minimum-idle: 2
+    connection-timeout-ms: 10000
+    max-lifetime-ms: 1800000
+    table-prefix: "omnilogin_"
+
+  yaml:
+    file: "accounts.yml"
